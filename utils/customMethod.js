@@ -17,4 +17,5 @@ module.exports = {
         I.waitForVisible(locator, timeout.waitForElement)
         I.clearField(locator)
     }
+
 }

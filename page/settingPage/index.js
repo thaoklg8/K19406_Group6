@@ -24,49 +24,27 @@ module.exports = {
         customMethod.clickElement(settingPageLocator.saveImageButton)
         I.waitForVisible(settingPageLocator.profileImage, timeout.waitForElement)
     },
-    addNewMember(membername) {
-        customMethod.clickElement(settingPageLocator.memberTab)
-        I.waitForElement(settingPageLocator.memberListTitle)
-        customMethod.clickElement(settingPageLocator.addNewMemberButton)
-        customMethod.fieldValue(settingPageLocator.emailField, membername)
-        customMethod.clickElement(settingPageLocator.searchMemberButton)
-        customMethod.clickElement(settingPageLocator.inviteMemberButton)
-        I.see(membername, settingPageLocator.memberLastRow)
-        I.see('Đang chờ phải hồi', settingPageLocator.memberLastRow)
-        I.see('Member', settingPageLocator.memberLastRow)
-    },
-    deleteMember(membername) {
-        customMethod.clickElement(settingPageLocator.deleteButtonbyMemberName(membername))
-        customMethod.clickElement(settingPageLocator.acceptDeleteButton)
-        I.waitForInvisible(settingPageLocator.deleteButtonbyMemberName(membername))
-    },
-    deleteCompany(companyname) {
-        customMethod.clickElement(settingPageLocator.settingTab)
-        customMethod.clickElement(settingPageLocator.anotherSettingTab)
-        I.waitForElement(settingPageLocator.anotherSettingTitle, timeout.waitForElement)
-        customMethod.clickElement(settingPageLocator.deleteCompanyDiv)
-        customMethod.clickElement(settingPageLocator.deleteCompanyButton)
-        customMethod.fieldValue(settingPageLocator.confirmInputField, companyname)
-        customMethod.clickElement(settingPageLocator.confirmDeleteCompany)
-        I.waitForElement(settingPageLocator.companyListTitle, timeout.waitForElement)
-        customMethod.clickElement(settingPageLocator.companyFirst)
-    },
     createAPI() {
         customMethod.clickElement(settingPageLocator.settingTab)
         customMethod.clickElement(settingPageLocator.tabAPIkey)
         customMethod.clickElement(settingPageLocator.APIButton)
         customMethod.fieldValue(settingPageLocator.inputAPIName, "test")
+        I.wait(1)
         customMethod.clickElement(settingPageLocator.createButton)
         customMethod.clickElement(settingPageLocator.xongButton)
+        I.wait(2)
     },
     editAPI() {
         customMethod.clickElement(settingPageLocator.editButton)
         customMethod.fieldValue(settingPageLocator.inputAPIName, "edit Test")
+        I.wait(1)
         customMethod.clickElement(settingPageLocator.createButton)
+        I.wait(2)
     },
     deleteAPI() {
         customMethod.clickElement(settingPageLocator.deleteButton)
         customMethod.clickElement(settingPageLocator.dongYButton)
+        I.wait(2)
     }
 
 }
