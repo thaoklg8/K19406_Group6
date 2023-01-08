@@ -4,6 +4,7 @@ const settingPageLocator = require('./locator')
 const customMethod = require("../../utils/customMethod")
 const createNewCompanyLocator = require('../createNewCompany/locator')
 const { createAPI } = require('../API')
+const funct = require('../common/variable')
 
 module.exports = {
     viewCreationPage() {
@@ -28,7 +29,7 @@ module.exports = {
         customMethod.clickElement(settingPageLocator.settingTab)
         customMethod.clickElement(settingPageLocator.tabAPIkey)
         customMethod.clickElement(settingPageLocator.APIButton)
-        customMethod.fieldValue(settingPageLocator.inputAPIName, "test")
+        customMethod.fieldValue(settingPageLocator.inputAPIName, funct.nameAPI)
         I.wait(1)
         customMethod.clickElement(settingPageLocator.createButton)
         customMethod.clickElement(settingPageLocator.xongButton)
@@ -36,7 +37,7 @@ module.exports = {
     },
     editAPI() {
         customMethod.clickElement(settingPageLocator.editButton)
-        customMethod.fieldValue(settingPageLocator.inputAPIName, "edit Test")
+        customMethod.fieldValue(settingPageLocator.inputAPIName, "EDIT TEST")
         I.wait(1)
         customMethod.clickElement(settingPageLocator.createButton)
         I.wait(2)
